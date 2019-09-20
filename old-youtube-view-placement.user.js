@@ -23,7 +23,7 @@ let pollElementText = function(selector, callback) {
 pollElementText("h1.title", function() {
 	console.log("checking if views are different");
 	console.log(`${prevViewCount} vs ${$('.view-count').text().trim()}`);
-	if ($('.view-count').text().trim() != prevViewCount){
+	if ($('#tampermonkey-views').length < 1 || $('.view-count').text().trim() != prevViewCount){
 		console.log("Adding new views element");
 		if ($('#tampermonkey-views').length < 1){
 			$('#info-contents .title').before('<h1 class="title style-scope ytd-video-primary-info-renderer" style="display: inline-block;float: right;"><yt-formatted-string force-default-style="" id="tampermonkey-views" class="style-scope ytd-video-primary-info-renderer">1,506,794 Views</yt-formatted-string></h1>');
